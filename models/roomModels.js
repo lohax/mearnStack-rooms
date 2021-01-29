@@ -1,0 +1,24 @@
+import mongoose from 'mongoose'
+
+const RoomSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+    trim: true, // efface les espace en fin de string
+    lowercase: true
+  },
+  maxPersons: {
+    type: Number,
+    default: 1,
+    validate: value => {
+      if (value <= 0) {
+        throw new Error('La chambre doit pouvoir acceuillir au moins une personne.')
+      }
+    }
+
+  }
+})
+
+const Room = mongoose.model('Room', RoomSchema)
+
+export default Room
