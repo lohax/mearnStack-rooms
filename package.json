@@ -1,10 +1,16 @@
 {
   "name": "mongo-crud",
   "version": "1.0.0",
-  "description": "",
+  "description": "Tuto Node pour Hardcoders",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon server.js"
+    "start": "node server.js",
+    "client": "cd client && npm start",
+    "build": "cd client && npm run build",
+    "install-client": "cd client && npm install",
+    "heroku-postbuild": "npm run install-client && npm run build",
+    "watch": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
@@ -19,5 +25,13 @@
   },
   "engines": {
     "node": "14.x"
+  },
+  "standard": {
+    "globals": [
+      "expect",
+      "test",
+      "it",
+      "fetch"
+    ]
   }
 }

@@ -15,8 +15,13 @@ const RoomSchema = new mongoose.Schema({
         throw new Error('La chambre doit pouvoir acceuillir au moins une personne.')
       }
     }
-
+  },
+  promo: {
+    type: Boolean,
+    trim: true//, // efface les espace en fin de string
+    // uppercase: true
   }
+
 })
 
 const Room = mongoose.model('Room', RoomSchema)

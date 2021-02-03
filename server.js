@@ -10,6 +10,8 @@ const app = express()
 
 app.use(express.json())
 
+app.use(express.static('client/build')) // On donne le chemin des pages statics du build
+
 mongoose.connect(process.env.MONGODB, {
   useNewUrlParser: true,
   useUnifiedTopology: true,

@@ -1,0 +1,31 @@
+GET http://localhost:5000/api/rooms
+
+###
+
+POST http://localhost:5000/api/rooms HTTP/1.1
+content-type: application/json
+
+{
+  "name": "test", 
+  "maxPersons": "1",
+  "promo": "false"
+}
+
+###
+
+GET http://localhost:5000/api/rooms/60142fd421f0a76becd6be8a
+
+###
+
+PATCH http://localhost:5000/api/rooms/60142fd421f0a76becd6be8a HTTP/1.1
+content-type: application/json
+
+{
+  "promo": ""
+}
+
+###
+
+DELETE http://localhost:5000/api/rooms/60191f39f3dfc96564a0e66a
+
+###
