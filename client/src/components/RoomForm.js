@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Form, Input, Button, Checkbox } from 'antd'
+// import { Form, Input, Button, Checkbox, Upload, message } from 'antd'
+// import { InboxOutlined } from '@ant-design/icons'
 
 const layout = {
   labelCol: { span: 8 },
@@ -52,6 +54,23 @@ const RoomForm = ({ id, room, setRoom }) => {
     navigate('/rooms')
   }
 
+  // const uploadProps = {
+  //   name: 'image',
+  //   multiple: false,
+  //   action: `/api/rooms/${id}`,
+  //   onChange (info) {
+  //     const { status } = info.file
+  //     if (status !== 'uploading') {
+  //       console.log(info.file, info.fileList)
+  //     }
+  //     if (status === 'done') {
+  //       message.success(`${info.file.name} file uploaded successfully.`)
+  //     } else if (status === 'error') {
+  //       message.error(`${info.file.name} file upload failed.`)
+  //     }
+  //   }
+  // }
+
   // if (!values) return null // autre possibilité de tester les data
 
   return !values
@@ -69,6 +88,19 @@ const RoomForm = ({ id, room, setRoom }) => {
         onFinishFailed={onFinishFailed}
       >
         {id === 'add' ? <h1>Nouvelle Chambre</h1> : ''}
+
+        {/* <Form.Item label='Image'>
+          <Form.Item {...uploadProps} noStyle>
+            <Upload.Dragger name='image' action='/api/rooms'>
+              <p className='ant-upload-drag-icon'>
+                <InboxOutlined />
+              </p>
+              <p className='ant-upload-text'>Click or drag file to this area to upload</p>
+              <p className='ant-upload-hint'>Support for a single or bulk upload.</p>
+            </Upload.Dragger>
+          </Form.Item>
+        </Form.Item> */}
+
         <Form.Item
           label='Nom'
           name='name'

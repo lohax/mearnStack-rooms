@@ -1,6 +1,12 @@
 import express from 'express'
 import mongoose from 'mongoose'
 import routes from './routes/routes.js'
+import privateRoutes from './routes/privateRoutes.js'
+
+import passport from 'passport'
+
+import './auth/auth.js'
+
 import dotenv from 'dotenv'
 dotenv.config()
 
@@ -15,7 +21,8 @@ app.use(express.static('client/build')) // On donne le chemin des pages statics 
 mongoose.connect(process.env.MONGODB, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  useFindAndModify: false
+  useFindAndModify: false,
+  useCreateIndex: true
   // connectTimeoutMS: 300000
 })
   .then(() => {
@@ -24,6 +31,13 @@ mongoose.connect(process.env.MONGODB, {
   .catch(err => {
     console.log(err)
   })
+
+// ordre important, avant les routes
+app.use(
+  '/private',
+  passport.authenticate('jwt', { session: false }),
+  privateRoutes
+)
 
 app.use(routes)
 

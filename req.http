@@ -2,7 +2,11 @@ GET http://localhost:5000/api/rooms
 
 ###
 
-POST http://localhost:5000/api/rooms HTTP/1.1
+GET http://localhost:5000/api/rooms/60142fd421f0a76becd6be8a
+
+###
+
+POST http://localhost:5000/private/api/rooms?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYwMjAwMzlkZDc1YmFlMzBiOGI1M2JhOCIsImVtYWlsIjoidGVzdEB0ZXN0LmNvbSJ9LCJpYXQiOjE2MTI3MTc3MDd9.j9Lg0keu_lYupKYb9eZdRasWVFE5VNtQZ0fVa5LFJpI HTTP/1.1
 content-type: application/json
 
 {
@@ -13,11 +17,7 @@ content-type: application/json
 
 ###
 
-GET http://localhost:5000/api/rooms/60142fd421f0a76becd6be8a
-
-###
-
-PATCH http://localhost:5000/api/rooms/60142fd421f0a76becd6be8a HTTP/1.1
+PATCH http://localhost:5000/private/api/rooms/60142fd421f0a76becd6be8a?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYwMjAwMzlkZDc1YmFlMzBiOGI1M2JhOCIsImVtYWlsIjoidGVzdEB0ZXN0LmNvbSJ9LCJpYXQiOjE2MTI3MTc3MDd9.j9Lg0keu_lYupKYb9eZdRasWVFE5VNtQZ0fVa5LFJpI HTTP/1.1
 content-type: application/json
 
 {
@@ -26,6 +26,30 @@ content-type: application/json
 
 ###
 
-DELETE http://localhost:5000/api/rooms/60191f39f3dfc96564a0e66a
+DELETE http://localhost:5000/private/api/rooms/60191f39f3dfc96564a0e66a?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYwMjAwMzlkZDc1YmFlMzBiOGI1M2JhOCIsImVtYWlsIjoidGVzdEB0ZXN0LmNvbSJ9LCJpYXQiOjE2MTI3MTc3MDd9.j9Lg0keu_lYupKYb9eZdRasWVFE5VNtQZ0fVa5LFJpI
+
+###
+
+POST http://localhost:5000/signup HTTP/1.1
+content-type: application/json
+
+{
+  "email": "test@test.com", 
+  "password": "blabla"
+}
+
+###
+
+POST http://localhost:5000/login HTTP/1.1
+content-type: application/json
+
+{
+  "email": "test@test.com", 
+  "password": "blabla"
+}
+
+###
+
+GET http://localhost:5000/private/secret?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYwMjAwMzlkZDc1YmFlMzBiOGI1M2JhOCIsImVtYWlsIjoidGVzdEB0ZXN0LmNvbSJ9LCJpYXQiOjE2MTI3MTc3MDd9.j9Lg0keu_lYupKYb9eZdRasWVFE5VNtQZ0fVa5LFJpI
 
 ###

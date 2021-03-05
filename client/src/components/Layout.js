@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { Layout, Menu } from 'antd'
+import { Layout, Menu, Button } from 'antd'
 const { SubMenu } = Menu
 
 // Export en destructuring des element de Layout :
@@ -12,6 +12,9 @@ const contentStyle = {
   padding: '3rem 3rem',
   justifyContent: 'center'
 }
+
+const loginStyle = { position: 'absolute', top: 15, right: 95 }
+const signupStyle = { position: 'absolute', top: 15, right: 10 }
 
 const LCLayout = ({ children }) => {
   const navigate = useNavigate()
@@ -34,6 +37,14 @@ const LCLayout = ({ children }) => {
           <Menu.Item key='4'>
             <Link to='/contact'>Contact</Link>
           </Menu.Item>
+
+          <Button key='5' style={loginStyle}>
+            <Link to='/login'>Login</Link>
+          </Button>
+          <Button type='primary' key='6' style={signupStyle}>
+            <Link to='/signup'>SignUp</Link>
+          </Button>
+
         </Menu>
       </Header>
 

@@ -21,9 +21,14 @@ const RoomSchema = new mongoose.Schema({
     trim: true//, // efface les espace en fin de string
     // uppercase: true
   }
+  // ,
+  // image: {
+  //   data: Buffer,
+  //   contentType: String
+  // }
 
 })
 
-const Room = mongoose.model('Room', RoomSchema)
+const RoomModel = mongoose.model('Room', RoomSchema)
 
-export default Room
+export default RoomModel
